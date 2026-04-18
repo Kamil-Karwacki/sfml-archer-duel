@@ -1,10 +1,12 @@
 #include "GameManager.h"
 #include "MainMenuState.h"
+#include "SFML/Window/WindowEnums.hpp"
 #include <chrono>
 
 void GameManager::run()
 {
-    window = sf::RenderWindow(sf::VideoMode({1280, 768}), "PK4 projekt");
+    window = sf::RenderWindow(sf::VideoMode({1280, 768}), "PK4 projekt",
+                              sf::Style::Titlebar | sf::Style::Close);
     setState(std::make_unique<MainMenuState>(this));
 
     this->loop();
